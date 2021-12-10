@@ -1,0 +1,18 @@
+[package]
+name = "tmux-startup"
+version = "0.1.0"
+edition = "2021"
+authors = ["The-Emperor10"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = {features = ["derive", "unicode"], version = "3.0.0-rc.1"}
+serde = {version = "1.0", features = ["derive"]}
+serde_json = "1.0.72"
+libc = "0.2.109"
+
+[build-dependencies]
+clap = {features = ["derive", "unicode"], version = "3.0.0-rc.1"}
+clap_generate = "3.0.0-rc.3"
+serde = {version = "1.0", features = ["derive"]}

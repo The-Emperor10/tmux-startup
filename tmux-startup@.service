@@ -1,0 +1,11 @@
+[Unit]
+Description=tmux-startup
+After=network.target
+
+[Service]
+Type=forking
+User=%i
+ExecStart=/usr/bin/tmux-startup startup
+
+[Install]
+WantedBy=multi-user.target

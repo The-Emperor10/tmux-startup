@@ -1,0 +1,6 @@
+/Cargo.lock
+/target
+/pkg
+*.pkg.*
+_*
+*.bash
