@@ -1,6 +1,4 @@
-use std::{
-    ffi::{OsString},
-};
+use std::ffi::OsString;
 
 use clap::{Parser, Subcommand};
 use serde::{Deserialize, Serialize};
@@ -59,6 +57,9 @@ pub struct Command {
     pub name: OsString,
     /// Command to run
     pub command: OsString,
+    /// Working directory
+    #[clap(short, long)]
+    pub directory: Option<OsString>,
     /// Run on startup
     #[clap(short, long)]
     pub startup: bool,

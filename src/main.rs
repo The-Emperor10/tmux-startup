@@ -1,12 +1,13 @@
 use std::{
-    ffi::{OsStr},
+    ffi::{OsStr, OsString},
     fs,
     io::{Read, Write},
     path::PathBuf,
     process::Stdio,
+    str::FromStr,
 };
 
-use clap::{Parser};
+use clap::Parser;
 mod cli;
 use cli::*;
 
@@ -137,6 +138,13 @@ fn create_window(program: &Command) {
             .arg("new-session")
             .arg("-ds")
             .arg(&program.session)
+            .arg("-c")
+            .arg(
+                program
+                    .directory
+                    .as_ref()
+                    .unwrap_or(&OsString::from_str(".").unwrap()),
+            )
             .arg(&program.command)
             .arg(";")
             .arg("rename-window")
@@ -151,6 +159,13 @@ fn create_window(program: &Command) {
             .arg("new-window")
             .arg("-dt")
             .arg(&program.session)
+            .arg("-c")
+            .arg(
+                program
+                    .directory
+                    .as_ref()
+                    .unwrap_or(&OsString::from_str(".").unwrap()),
+            )
             .arg("-n")
             .arg(&program.name)
             .arg(&program.command)
